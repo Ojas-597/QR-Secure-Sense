@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+</head>
+<body style="background:#0f172a;color:white;text-align:center;margin-top:100px;">
+<h2>QR Secure Sense Login</h2>
+
+<input id="username" placeholder="Username"><br><br>
+<input id="password" type="password" placeholder="Password"><br><br>
+
+<button onclick="login()">Login</button>
+
+<script>
+function login(){
+  fetch("/api/login",{
+    method:"POST",
+    headers:{ "Content-Type":"application/json"},
+    body:JSON.stringify({
+      username:document.getElementById("username").value,
+      password:document.getElementById("password").value
+    })
+  })
+  .then(res=>res.json())
+  .then(data=>{
+    if(data.success){
+      localStorage.setItem("role",data.role);
+      window.location="/dashboard.html";
+    } else {
+      alert("Invalid credentials");
+    }
+  });
+}
+</script>
+
+</body>
+</html>
