@@ -1,0 +1,15 @@
+{
+  "name": "qr-threat-sense",
+  "version": "1.0.0",
+  "description": "QR Threat Sense - SOC Based QR Risk Analysis Platform",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Ojaswita Desai",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
